@@ -48,12 +48,12 @@ spring:
         master:
           url: jdbc:mysql://127.0.0.1:3306/yixiang-drink-open?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&nullCatalogMeansCurrent=true # MySQL Connector/J 8.X 连接的示例
           username: root
-          password: root
+          password:
         slave: # 模拟从库，可根据自己需要修改
           lazy: true # 开启懒加载，保证启动速度
           url: jdbc:mysql://127.0.0.1:3306/yixiang-drink-open?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&nullCatalogMeansCurrent=true
           username: root
-          password: root
+          password:
 
   # Redis 配置。Redisson 默认的配置足够使用，一般不需要进行调优
   data:
@@ -188,6 +188,9 @@ wx:
 
 # yshop配置项，设置当前项目所有自定义的配置
 yshop:
+  web:
+    admin-ui:
+      url: http://127.0.0.1:48082
   captcha:
     enable: false # 本地环境，暂时关闭图片验证码，方便登录等接口的测试；
   security:
@@ -204,8 +207,8 @@ yshop:
     enable: false
   demo: false # 关闭演示模式
   tencent-lbs-key: TVDBZ-TDILD-4ON4B-PFDZA-RNLKH-VVF6E # QQ 地图的密钥 https://lbs.qq.com/service/staticV2/staticGuide/staticDoc
-  file-path: /Users/hupeng/drink/file/
-  h5: http://localhost:80
+  file-path: /Users/schaezel/Workspace/yshop-drink/local-data/files/
+  h5: http://127.0.0.1:48083
 
 justauth:
   enabled: true
@@ -233,4 +236,3 @@ justauth:
     type: REDIS
     prefix: 'social_auth_state:' # 缓存前缀，目前只对 Redis 缓存生效，默认 JUSTAUTH::STATE::
     timeout: 24h # 超时时长，目前只对 Redis 缓存生效，默认 3 分钟
-
